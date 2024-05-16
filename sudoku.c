@@ -43,7 +43,7 @@ void print_node(Node *n) {
 }
 
 int is_valid(Node *n) {
-  int i, j, k, largo;
+  int i, j, k;
   //filas
   for (i = 0; i < 9; i++) {
     int filas[10] = {0};

@@ -57,3 +57,24 @@ sudoku.c:46:13: error: unused variable ‘k’ [-Werror=unused-variable]
 cc1: all warnings being treated as errors
 Compilation failed
 7b33a63
+Thu 16 May 2024 04:04:35 PM UTC: 
+ sudoku.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:5:
+sudoku.c: In function ‘is_valid’:
+sudoku.c:53:7: error: ‘largo’ undeclared (first use in this function)
+   53 |       largo = 0;
+      |       ^~~~~
+sudoku.c:53:7: note: each undeclared identifier is reported only once for each function it appears in
+sudoku.c:72:38: error: ‘y’ undeclared (first use in this function)
+   72 |               if(columnas[n->sudo[x][y]]==1)
+      |                                      ^
+sudoku.c:64:15: error: variable ‘columnas’ set but not used [-Werror=unused-but-set-variable]
+   64 |           int columnas[10] = {0};
+      |               ^~~~~~~~
+sudoku.c:46:13: error: unused variable ‘k’ [-Werror=unused-variable]
+   46 |   int i, j, k;
+      |             ^
+cc1: all warnings being treated as errors
+Compilation failed
+8e04b77
