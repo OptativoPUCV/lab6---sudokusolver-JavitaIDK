@@ -2,3 +2,14 @@ Thu 16 May 2024 03:12:38 PM UTC:
  tests:  0|5
 total_score: 0/70
 ab9d57e
+Thu 16 May 2024 03:45:21 PM UTC: 
+ sudoku.c | 25 +++++++++++++++++++++++++
+ 1 file changed, 25 insertions(+)
+In file included from test.c:5:
+sudoku.c: In function ‘is_valid’:
+sudoku.c:47:11: error: unused variable ‘k’ [-Werror=unused-variable]
+   47 |   int i,j,k;
+      |           ^
+cc1: all warnings being treated as errors
+Compilation failed
+ba9daa4
