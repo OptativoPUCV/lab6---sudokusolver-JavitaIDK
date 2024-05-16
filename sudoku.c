@@ -67,9 +67,10 @@ int is_valid(Node *n) {
                 {
                   if(n->sudo[x][y]==0)
                     continue;
+                  if(columnas[n->sudo[x][y]]==1)
+                    return 0;
                 }
-              if(columnas[n->sudo[x][y]]==1)
-                return 0;
+              
                 
             }
         }
