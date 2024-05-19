@@ -46,24 +46,21 @@ int is_valid(Node *n)
 {
   int fila[9][9] = {0};
   int columnas[9][9] = {0};
-  int box[3][3][10] = {0};
+  int box[9][9] = {0};
   for(int i = 0; i < 9; i++)
     {
       for(int j = 0; j < 9; j++)
         {
-          int num = n->sudo[i][j];
-          if(num == 0)continue;
-          if(fila[i][num] || columnas[j][num]) return 0;
-          fila[i][num] = 1;
-          columnas[j][num] = 1;
-
-          int subFila = i / 3;
-          int subColumna = j / 3;
-          if(box[subFila][subColumna][num])return 0;
-          box[subFila][subColumna][num] = 1;
+          if(n->sudo[i][j] != 0)
+          {
+            int num = n->sudo[i][j] - 1;
+            int k = (i / 3) * 3 + j / 3;
+            if (fila[i][num] || columnas[j][num] || box[k][num])
+                return 0;
+              fila[i][num] = columnas[j][num] = box[k][num] = 1;
+          }
         }
     }
-  
   return 1;
 }
 
