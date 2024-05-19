@@ -70,8 +70,6 @@ int is_valid(Node *n) {
                   if(columnas[n->sudo[x][y]]==1)
                     return 0;
                 }
-              
-                
             }
         }
     }
@@ -87,7 +85,8 @@ List *get_adj_nodes(Node *n) {
         for (k = 1; k <= 9; k++) {
           Node *newNode = copy(n);
           newNode->sudo[i][j] = k;
-          pushBack(list, newNode);
+          if(is_valid(newNode))
+            pushBack(list, newNode);
         }
         break;
       }
