@@ -42,37 +42,28 @@ void print_node(Node *n) {
   printf("\n");
 }
 
-int is_valid(Node *n) {
-  int i, j;
-  //filas
-  for (i = 0; i < 9; i++) {
-    int filas[10] = {0};
-    for (j = 0; j < 9; j++) {
-      if (n->sudo[i][j] == 0)
-        continue;
-      if(filas[n->sudo[i][j]]== 1)
-        return 0;
-      filas[n->sudo[i][j]] = 1;
-    }
-  }
-  //columnas
-  for(i = 0; i < 9; i+=3)
+int is_valid(Node *n) 
+{
+  int fila[9][9] = {0};
+  int columnas[9][9] = {0};
+  int box[3][3][10] = {0};
+  for(int i = 0; i < 9; i++)
     {
-      for(j = 0; j < 9; j+=3)
+      for(int j = 0; j < 9; j++)
         {
-          int columnas[10] = {0};
-          for(int x = i; x < i + 3 ;x++)
-            {
-              for(int y = j; y < j + 3; y++)
-                {
-                  if(n->sudo[x][y]==0)
-                    continue;
-                  if(columnas[n->sudo[x][y]]==1)
-                    return 0;
-                }
-            }
+          int num = n->sudo[i][j];
+          if(num == 0)continue;
+          if(fila[i][num] || columnas[j][num]) return 0;
+          fila[i][num] = 1;
+          columnas[j][num] = 1;
+
+          int subFila = i / 3;
+          int subColumna = j / 3;
+          if(box[subFila][subColumna][num])return 0;
+          box[subFila][subColumna][num] = 1;
         }
     }
+  
   return 1;
 }
 
