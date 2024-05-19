@@ -129,3 +129,15 @@ Sun 19 May 2024 03:18:59 AM UTC:
  tests:  6|2
 total_score: 45/70
 50e3937
+Sun 19 May 2024 03:22:33 AM UTC: 
+ sudoku.c | 25 ++++++++++++++++++++++++-
+ 1 file changed, 24 insertions(+), 1 deletion(-)
+In file included from test.c:5:
+sudoku.c: In function ‘DFS’:
+sudoku.c:121:29: error: ‘list’ undeclared (first use in this function); did you mean ‘List’?
+  121 |       Node *adjNode = first(list);
+      |                             ^~~~
+      |                             List
+sudoku.c:121:29: note: each undeclared identifier is reported only once for each function it appears in
+Compilation failed
+acef354
