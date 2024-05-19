@@ -114,7 +114,7 @@ Node *DFS(Node *initial, int *cont) {
     {
       Node *actual = top(S);
       pop(S);
-      (cont)++;
+      (*cont)++;
       if(is_final(actual))
         return actual;
       List *adjNodes = get_adj_nodes(actual);
@@ -124,11 +124,8 @@ Node *DFS(Node *initial, int *cont) {
           push(S,adjNodes);
           adjNodes = next(adjNodes);
         }
-      free(actual);
-
-      
+      free(actual); 
     }
-
   return NULL;
 }
 
