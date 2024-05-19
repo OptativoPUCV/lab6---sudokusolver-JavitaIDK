@@ -118,7 +118,7 @@ Node *DFS(Node *initial, int *cont) {
       if(is_final(actual))
         return actual;
       List *adjNodes = get_adj_nodes(actual);
-      Node *adjNode = first(list);
+      Node *adjNode = first(adjNodes);
       while(adjNode != NULL)
         {
           push(S,adjNodes);
