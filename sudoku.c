@@ -111,7 +111,7 @@ Node *DFS(Node *initial, int *cont) {
   if(!initial)return NULL;
   Stack *S = createStack();
   push(S,initial);
-  while(top(S) != NULL)
+  while(!is_empty(S))
     {
       Node *actual = top(S);
       pop(S);
@@ -119,13 +119,8 @@ Node *DFS(Node *initial, int *cont) {
       if(is_final(actual))
         return actual;
       List *adjNodes = get_adj_nodes(actual);
-      Node *adjNode = first(adjNodes);
-      while(adjNode != NULL)
-        {
-          push(S,adjNodes);
-          adjNodes = next(adjNodes);
-        }
-      free(actual); 
+      for(Node *adj = first(adjNodes); adj != NULL; adj = next(adjNodes))
+        push(S,adj);
     }
   return NULL;
 }
