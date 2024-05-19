@@ -108,6 +108,7 @@ int is_final(Node *n) {
 }
 
 Node *DFS(Node *initial, int *cont) {
+  if(!initial)return NULL;
   Stack *S = createStack();
   push(S,initial);
   while(top(S) != NULL)
