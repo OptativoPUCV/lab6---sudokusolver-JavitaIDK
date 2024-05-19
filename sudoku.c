@@ -90,7 +90,7 @@ List *get_adj_nodes(Node *n) {
           else 
             free(newNode);
         }
-        break;
+        return list;
       }
     }
 
